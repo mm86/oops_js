@@ -31,10 +31,39 @@ if(checkSomething()){
 }
 log(foil);
 
-so it seems like variables are being accessed correctly now in accordance with the rules of lexical scoping. 
+so it seems like variables are being accessed correctly now in accordance with the rules of lexical scoping. but our program needs to call the 
+newsaga function in order for it to do anything useful.lets call the function twice so we can see two newsaga functions playing out.
+we also need to make sure the inner function saga gets called.
 
 var hero = aHero();
-var newSaga = function(){
+var newSaga = function(){<-- red color
+   var foil = aFoil();
+   var saga = function(){<--blue color
    var deed = aDeed();
    log(hero+deed+foil);
-}
+   };
+   saga();
+   saga();
+};
+
+newSaga();
+newSaga();
+
+we are done listing lexical scopes in this program,we've seen how to differentiate one lexical scope from another,
+and we've learned the rules that govern them.it's time to talk of a different idea relating to a different usage of the word scope.
+
+when a prgram runs, it builds up storage systems for holding the variables and their values. These in-memory scope structures
+are called execution contexts. execution contexts or in-memory scopes differ from lexical scopes, in that they are built as
+the code runs and not as its typed.The rules govern which  variables a program has access to at different points during 
+the execution.lets explore how variables will be available at runtime within different contexts.
+
+As the program runs, it will be building up internal data stores for keeping track of all the variables that are available
+to different function objects. This will be a picture of our in-memory system. since each new run of a function is supposed 
+to operate in complete isolation from all previous runs, a new execution context should be created every time you 
+run a function. Thus, for each lexical scope there may be many in-memory scopes created during execution or none. It 
+all depends on how many times you run a function in your code. To examine execution contextx, we need to run this program
+before the first line of code even runs, the interpreter will start out by setting up an execution environment for you.
+
+The first step will be to create an in-memory global scope context to hold all the global variables.
+so lets visualize the execution context data store off to the right here. we'll use a similar color as the lexical
+scope region that it relates to.
