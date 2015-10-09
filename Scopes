@@ -1,0 +1,40 @@
+in a program without any functions, every variable is a global scope and all variables are stored in the global scope.
+global scope can also be shared across mutlipel files.
+
+after defining a variable in a lexical scope, you may make reference to that variable from anyhwere else in that lexical scope.
+a new lexical scope is created everytime you type out a function definition.the function definition spans from the letter f all 
+
+the way down to the end curly brace. the two curly braces around the function's body enclosed the area of the code where
+different access rules will apply.let's color in all the area between these braces to represent the region that will have new rules, and that we could thus consider a different lexical scope. once you've made a new lexical scope by defining a function,
+it has a few more limits than the lexical scope around it. although you can still access variables from the broader lexical scope containing that interlexical scope and you can acess variables(var foil) that get defined inside that inner scope, the variables that you define in the inner scope cannot be reffered to from outside that scope(log(foil) outside the curly brace.
+Outside these curly braces referring to a variable that was local to the inner scope will result in an error.
+the variables that will be available within the body of the new saga function? awhat variables can you access within these two curly braces? hero, newsaga and foil. the newsaga function is the tightest scoped function avaliable and so it has access
+to all the outer functions.
+
+var hero = aHero();
+var newSaga = function(){
+  var foil = aFoil();
+
+
+
+ log(foil);
+};
+log(hero);
+
+Note: JS allows you to assign to variables youve never even declared before.in this example, i took the var statement off of this assignment operation.so foil has not been declared anywhere in our whole program. when you are doing this kind of assignment, variables that you are assigning to for the first time will be added automatically to the global scope and not to whatever scope you did the assignment in. this is a bad practice, leaving the var keyword off is more often done as an accident not on purpose.
+
+also note that unlike other languages, not all curly braces in JS are relevant for scoping.blocks on if statements or while statements and other looping constructs do nto create new scopes. only the curly braces that you find on a function statement creates a scope. scoping limitations are actually very useful.they allow us to think about less of our porgram all at once.
+
+var hero = aHero();
+if(checkSomething()){
+  var foil = aFoil();
+}
+log(foil);
+
+so it seems like variables are being accessed correctly now in accordance with the rules of lexical scoping. 
+
+var hero = aHero();
+var newSaga = function(){
+   var deed = aDeed();
+   log(hero+deed+foil);
+}
