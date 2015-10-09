@@ -1,0 +1,18 @@
+As JS developers we frequently make sue of closures which is a concept many people find confusing.
+can you explain how closures work? Put simply , every function should have access to all the variables from
+all the scopes that surround it. A closure is just any function that somehow remains avaliable after those
+outer scopes have returned.
+
+Lets refactor that saga code from earlier and run a new version in our simulated interpreter.
+What if we could keep a reference to each of the saga functions that we create during the invocation of new saga?
+And we could keep them around forever, such that they were available long after those new Saga calls had completed and
+returned.Which of these techniques do you think we can use to access the saga functions even after the new saga caals that
+created them had returned?
+
+all 3 techniques
+1. passing to setTimeout
+2. returning saga from newSaga
+3. saving saga to a global user
+
+let's make a global variable called sagas that will store an array for us and we'll use this array for storage of saga
+functions.Then all we would need in order to have permanenet access to each of the saga functions is to push them into that global array.
