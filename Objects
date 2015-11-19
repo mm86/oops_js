@@ -1,0 +1,57 @@
+Objects:
+
+Data types in JS can be classified into two types - primitive(string, null, numbers, boolean and undefined) 
+and reference (objects). Primitive are immutable whereas objects are mutable. An object is an unordered list of name-value
+pairs made of primitive and reference data types (functions and objects within objects). Each item in the list is called a 
+property and functions within objects are called methods.
+
+Example: 
+
+var myFirstObject = 
+
+    {
+
+    firstName: "Richard", 
+    lastName: "Burke"
+    
+    };
+    
+    
+Property names can be strings or numbers, if numbers then they must be accessed by bracket notation.
+
+Example:
+
+var ageGroup = {
+
+   20: "joe",
+   30: "mary"
+   
+   };
+   
+console.log(ageGroup["30"]); //will print mary
+console.log(ageGroup.30); // will throw error
+
+Pass by value vs Pass by reference:
+
+One of the main differences between the reference data types and primitive data types is that reference data types
+values are stored as reference and not directly on the variable, as a value, as the primitive data types.
+
+Pass by value:
+
+var person = "Joe"; The primitive data type string is stored as a value directly on the variable person.
+var anotherPerson = person; //anotherPerson = value of person
+person = "Bryant"; //value of person changed
+
+console.log(anotherPerson) // Joe
+console.log(person); // Bryant
+
+Pass by reference:
+
+var person = {name:"kobe"};
+var anotherPerson = person;
+person.name = "Joe";
+console.log(person.name); //Joe
+console.log(anotherPerson.name); //Joe
+
+Here, when the person object is copied to the anotherPerson object, what is happening is that the person object is stored
+as a reference and not directly as a value. So, both person 
