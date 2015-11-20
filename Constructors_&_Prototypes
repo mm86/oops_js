@@ -1,1 +1,51 @@
+Constructors & Prototypes:
 
+
+Since JavaScript lacks classes, it uses constructors and prototypes to bring similar order to objects.
+
+Constructors:
+
+A constructor (something that you are already familiar with) is simply a function that uses new keyword to create an Object.
+JS has several built-in constructors such as Object, Array and Function. Objects created with the same constructors have the 
+same properties and methods. Therefore, in order to create multiple similar objects, you can use constructors. Constructor
+names must begin with a capital letter to distinguish them from other functions.
+
+function Person(){
+//do something here
+}
+
+Once you define a constructor, you can start creating instances of the Person constructor, such as
+
+var person1 = new Person();
+var person2 = new Person();
+
+Constructors allow you to create object instances of the same type, but they are not enough for eliminating code 
+redundancy. So, if each instance has the same method and you have 100 instances,then you have 100 methods that does the same 
+thing but with different data.
+
+It would be much more appropriate if all instances shared one method and that method could use this.name to retrieve the 
+appropriate data.
+
+This is where Prototypes come in.
+
+Prototypes:
+
+Almost every function comes has a prototype property and the shared nature of prototypes makes them ideal for defining 
+methods once for all objects of a given type. It's therefore much more efficient to put the methods on the prototype
+and then use this parametet to access the current instance. 
+
+For example,
+
+function Person(name){
+    this.name = name;
+}
+
+Person.prototype.sayName = function(){
+	console.log(this.name);
+};
+
+var person1 = new Person("Nicholas");
+var person2 = new Person("joe");
+
+person1.sayName(); //outputs Nicholas
+person2.sayName(); //outputs Joe
