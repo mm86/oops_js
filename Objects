@@ -55,3 +55,79 @@ console.log(anotherPerson.name); //Joe
 
 Here, when the person object is copied to the anotherPerson object, what is happening is that the person object is stored
 as a reference and not directly as a value. So, both person 
+
+
+Creating Objects:
+
+There are 2 ways to creating objects - object literals and object constructors
+
+Object literal:
+
+var myBooks = {}; //empty object initialized using object literal notation
+var myBio = {
+
+ name: "Joe",
+ age: 38,
+ job: "developer"
+};
+
+Object constructor: A constructor is a function that initializes new objects and we use the new keyword to call 
+this constructor. 
+
+example:
+
+var mango = new Object();
+mango.name = "joe";
+mango.age = 34;
+
+mango.count = function(){
+console.log("Hi");
+}
+
+Objects, apart from containing numbers, strings and methods, can also contain other objects as properties.
+
+What to do when you have to create repetitive tasks? Such as, you need to make a display of 10 fruits, each containing
+same list of properties. Instead of creating 10 different fruit objects, you can use either the constructor pattern
+or the prototype pattern to create a new object that has the same properties of another object.
+
+1. Constructor pattern for creating objects: (this pattern uses the new keyword , so it is called constructor pattern)
+
+function Fruit(theColor,theSweetness,theFruitname){
+
+this.color = theColor;
+this.sweetness = theSweetness;
+this.fruitName = theFruitname;
+
+this.showName = function(){
+console.log(this.fruitName);
+}
+
+}
+
+var mangoFruit = new Fruit("yellow",8,"mango");
+mangoFruit.showName(); //mango
+
+var orangeFruit = new Fruit("orange-red",8,"orange");
+orangeFruit.showName(); //orange
+
+This constructor pattern encapsulates all the functionalities and characteristics of all the fruits in by making 
+just the single Fruit function with inheritance.
+
+
+2. Prototype pattern for creating Objects:
+
+function Fruit(){}
+
+Fruit.prototype.color = "Yellow";
+Fruit.prototype.sweetness = 7;
+Fruit.prototype.fruitName = "Mango";
+
+Fruit.prototype.showName = function(){
+console.log(this.fruitName);
+}
+
+var mangoFruit = new Fruit();
+
+
+
+
