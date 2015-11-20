@@ -1,1 +1,18 @@
 
+In JS, there are no classes and inheritance occurs between objects with
+no classlike structure. Instead, the mechanism used for inheritance is
+prototypes.
+
+Prototype chaining:
+
+JS's approach for inheritance is called prototype chaining or prototypal
+inheritance.
+
+Prototype properties are automatically avaliable on object instances,which is a form of inheritance. The object instances inherit properties from the prototype. Because the prototype is also an object, it has its own prototype and inherits properties from that. This is the prototype chain. An object inherits from its prototype, while that prototype in turn inherits from it's prototype and so on.
+
+All objects automatically inherit from Object.prototype.
+Several methods are also inherited from object.prototype such as
+
+1. hasOwnProperty(), propertyIsEnumerable(), valueOf() etc
+
+Since all objects inherit from object.prototype, changes to object.prototype affects all objects. Therefore, you are not advised to modify built-in object prototypes.
