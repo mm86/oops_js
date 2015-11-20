@@ -14,3 +14,9 @@
 
 All functions in JS have properties, just like how objects have properties, and functions get the this property - a variable
 with the value of the object that invokes the function where this is used.
+
+When we use this in a global function, the object this refers to is the global window object.
+
+
+"This" is most misunderstood in the following places:
+
