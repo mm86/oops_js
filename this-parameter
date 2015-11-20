@@ -1,1 +1,16 @@
 
+ var person = {
+    firstName: "Penelope",
+    lastName: "Barrymore",
+    fullName: function () {
+    
+ // Since the "this" keyword is used inside the showFullName method below, and the showFullName method is defined on the person object,
+ // "this" will have the value of the person object because the person object will invoke showFullName ()​
+ 
+        console.log(this.firstName + " " + this.lastName);
+        console.log(person.firstName + " " + person.lastName);
+    }
+}
+
+All functions in JS have properties, just like how objects have properties, and functions get the this property - a variable
+with the value of the object that invokes the function where this is used.
