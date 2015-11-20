@@ -6,3 +6,22 @@ John is running fast because he is trying to catch the train.
 
 this keyword is used as a shortcut and it refers to the subject in context
 or the subjct of the executing code.
+
+var person = {
+
+firstName: "Penelope",
+lastName: "Barrymore",
+
+fullName:function(){
+
+console.log(this.firstName);
+console.log(person.firstName);//instead of this, we can also write like this
+
+}
+}
+
+if we have another global variable person, then using person.firstName can 
+lead to confusion. In order to minimize this problem, we use the this keyword.
+
+The this keyword not only refers to the object but it also contains the value
+of the object. 
