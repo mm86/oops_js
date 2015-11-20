@@ -19,6 +19,39 @@ Once you define a constructor, you can start creating instances of the Person co
 var person1 = new Person();
 var person2 = new Person();
 
+If you want to deduce an object's type, you can use the instanceof operator.
+
+console.log(person1 instanceof Person); //true
+
+Because person1 and person2 were created with the Person constructor, instanceof returns true when it checks whether these objects are instances of the Person type.
+
+Apart from instanceof, you can also check the type of an instance using the constructor property. Every object instance is automatically created with a constructor property that contains a reference to the constructor function that created it. 
+
+For generic objects (those created with object literal or the Object constructor), constructor is set to Object. For objects created with a custom constructor such as Person, the constructor property points to that constructor function instead.
+
+console.log(person1.constructor === Person);//true
+
+But, you are advised to use instanceOf to check the type of an instance.
+As constructor property can be overwritten and therefore may not be accurate.
+
+Example of a constructor:
+
+function Person(name){
+
+    this.name = name;
+    this.sayName = function(){
+	console.log(this.name);
+    };
+
+}
+
+The Person constructor accepts a single parameter name and assigns it to the name property of the this object.the this object automatically created by new when you call the constructor and it is an instance of the constructors type. (this is an instance of Person).and the new operator produces the return value so no need to return a value from the function.
+
+var person1 = new Person("greg");
+
+person1.sayName();
+
+
 Constructors allow you to create object instances of the same type, but they are not enough for eliminating code 
 redundancy. So, if each instance has the same method and you have 100 instances,then you have 100 methods that does the same 
 thing but with different data.
@@ -49,3 +82,36 @@ var person2 = new Person("joe");
 
 person1.sayName(); //outputs Nicholas
 person2.sayName(); //outputs Joe
+
+Almost every function has a prototype property that is used during the creation of new instances. That prototype is shared among all of the object instances and those instances can access properties of the prototype.For example, hasOwnProperty() method is defined on the generic Object prototype, but it can be accessed from any object as if it were an own property.
+
+example,
+
+var book = {
+   title: "OOPs"
+};
+
+console.log(book.hasOwnProperty("title"));//true
+console.log(book.hasOwnProperty("hasOwnProperty"));//false
+
+hasOwnProperty() method can still be accessed as book.hasOwnProperty(); because the definition exists on Object.prototype.
+
+Changing prototypes:
+
+Because all instances of a particular type reference a shared prototype, you can augment all of those objects together at any time. Since the protptype property just contains a pointer to the prototype, any changes to the prototype are immediatley available on any instance referencing it.
+
+For example,
+
+function Person(name){
+    this.name = name;
+}
+
+Person.prototype = {
+    sayName: function(){
+console.log(this.name);
+}
+}
+
+Person.prototype.sayHi = function(){
+    console.log("Hi");
+};
