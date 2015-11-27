@@ -24,6 +24,11 @@ Here, the click method has a function as a parameter and this function is called
 executes/calls the callback function we passed to it as a parameter. Since callback functions do not have a name,
 they are also called anonymous functions.
 
-Another example of callback functions:
+How callback functions work?
+
+When we pass a callback function as an argument to another function, we are only passing the function definition.
+We are not executing the function in the parameter.
+
+
 
 
