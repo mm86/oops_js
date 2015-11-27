@@ -1,2 +1,29 @@
 
-Callback functions
+Callback functions:
+
+
+Since functions are of the type Object in JS, they can be 'stored in variables (function expressions), passed as arguments
+to functions, created within functions (closures) and returned from functions.'
+
+Since functions are objects in JS, they can be passed as arguments in another function and executed within that function or 
+returned to be executed later on. This is the essence of callback functions. Callback functions are the most widely used
+functional programming technique (use of functions as arguments) in JS.
+
+
+What is a callback or higher-order function?
+
+A callback function is a function that is passed as a parameter to another function and executed(called) within that function.
+
+Example:
+
+$("#btn_1").click(function() {
+  alert("Btn 1 Clicked");
+});
+
+Here, the click method has a function as a parameter and this function is called a callback function. The click method
+executes/calls the callback function we passed to it as a parameter. Since callback functions do not have a name,
+they are also called anonymous functions.
+
+Another example of callback functions:
+
+
