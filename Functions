@@ -21,8 +21,9 @@ $("#btn_1").click(function() {
 });
 
 Here, the click method has a function as a parameter and this function is called a callback function. The click method
-executes/calls the callback function we passed to it as a parameter. Since callback functions do not have a name,
-they are also called anonymous functions.
+executes/calls the callback function we passed to it as a parameter. 
+
+
 
 How callback functions work?
 
