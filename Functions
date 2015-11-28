@@ -27,7 +27,10 @@ they are also called anonymous functions.
 How callback functions work?
 
 When we pass a callback function as an argument to another function, we are only passing the function definition.
-We are not executing the function in the parameter.
+We are not executing the function in the parameter, since we are not passing the function with the executing paranthesis().
+Since the containing function contains the function within, it can execute the callback function anytime.
+
+
 
 
 
